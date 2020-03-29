@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Create New Post</h1>
+            <h1>Register a new account</h1>
           </div>
         </div>
       </div>
@@ -24,28 +24,23 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form action="/post/store" method="POST" enctype="multipart/form-data">
+        <form action="/users/register" method="POST">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Title</label>
-              <input type="text" class="form-control" placeholder="Title" id="title" name="title">
+              <label>Username</label>
+              <input type="text" class="form-control" placeholder="Username" id="username" name="username">
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Description</label>
-              <textarea rows="5" class="form-control" id="body" name="body" placeholder="Body"></textarea>
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password" id="password" name="password">
             </div>
           </div>
           <br>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="sendMessageButton">Post</button>
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Register</button>
           </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls">
-              <label>Image</label>
-              <input type="file" class="form-control" id="image" name="image">
-            </div>
           </div>
         </form>
       </div>
