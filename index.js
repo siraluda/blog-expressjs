@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); // this parse's incoming request bodies in a middleware and make the form data available under 'req.body' property 
 const fileUpload = require('express-fileupload');
 const expressSession = require('express-session') // a middleware used to keep a logged in user's information in their browser
+const flash = require('connect-flash'); // this provides a special area in session in which messages can be written to and deleted after being displayed to the user
 
 /***********IMPORTING CONTROLLERS******************************** */
 const newPostController = require('./controllers/newPost');
@@ -32,6 +33,9 @@ app.use(express.static('public'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+// setting flash to enable us flash error messages to the user
+app.use(flash());
+
 // adding the 'files' property to the req object so that we can access the uploaded files using req.files
 app.use('/post/store', fileUpload())
 
@@ -43,6 +47,8 @@ app.set('view engine', 'ejs')
 app.use(expressSession({
     secret: 'keyboard cat'
 }))
+
+
 
 /**Custom Middlewares */
 const authMiddleware = require('./middleware/authMiddleware');

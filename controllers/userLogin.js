@@ -15,8 +15,15 @@ module.exports = (req, res) => {
                     res.redirect('/auth/login') 
                 }
             })
-        } else { 
-            res.redirect('/auth/login') 
+        } else if(error === null) {
+            console.log(error);
+            
+            const loginError = 'Please provide a valid username and password';
+            req.flash('loginError',loginError);
+
+            req.flash('data', req.body);
+
+            return res.redirect('/auth/login') 
         }
     })
 }
